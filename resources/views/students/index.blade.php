@@ -20,7 +20,7 @@
                     </div>
                 </div>
 
-{{--                @livewire('student.index')--}}
+                @livewire('student.index')
             </div>
         </div>
     </div>

@@ -10,9 +10,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Section extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
-    public function class(): BelongsTo
+    public function classes(): BelongsTo
     {
         return $this->belongsTo(Classes::class);
     }

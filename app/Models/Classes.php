@@ -10,10 +10,15 @@ class Classes extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     public function sections(): HasMany
     {
         return $this->hasMany(Section::class);
+    }
+
+    public function students():HasMany
+    {
+        return $this->hasMany(Student::class);
     }
 }
