@@ -3,18 +3,18 @@
         <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
                 <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900">First name</label>
-                <input wire:model="name" type="text" id="first_name"
+                <input wire:model="form.name" type="text" id="first_name"
                        class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        placeholder="John">
-                <div class="text-red-600">@error('name') {{ $message }} @enderror</div>
+                <div class="text-red-600">@error('form.name') {{ $message }} @enderror</div>
 
             </div>
             <div>
                 <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 ">Email</label>
-                <input wire:model="email" type="email" id="email"
+                <input wire:model="form.email" type="email" id="email"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        placeholder="john.doe@company.com">
-                <div class="text-red-600">@error('email') {{ $message }} @enderror</div>
+                <div class="text-red-600">@error('form.email') {{ $message }} @enderror</div>
 
             </div>
 
@@ -22,10 +22,10 @@
             <div>
                 <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Upload
                     image</label>
-                <input wire:model="image"
+                <input wire:model="form.image"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        id="file_input" type="file">
-                <div class="text-red-600">@error('image') {{ $message }} @enderror</div>
+                <div class="text-red-600">@error('form.image') {{ $message }} @enderror</div>
 
             </div>
 
@@ -39,7 +39,7 @@
                         <option value="{{$class->id}}">{{$class->name}}</option>
                     @endforeach
                 </select>
-                <div class="text-red-600">@error('classes_id') {{ $message }} @enderror</div>
+                <div class="text-red-600">@error('form.classes_id') {{ $message }} @enderror</div>
 
             </div>
 
@@ -47,7 +47,7 @@
             <div>
 
                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 ">Select Section</label>
-                <select id="countries" wire:model="section_id"
+                <select id="countries" wire:model="form.section_id"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected>Choose a section</option>
                     @foreach($sections as $section)
@@ -55,7 +55,7 @@
                     @endforeach
                 </select>
 
-                <div class="text-red-600">@error('section_id') {{ $message }} @enderror</div>
+                <div class="text-red-600">@error('form.section_id') {{ $message }} @enderror</div>
             </div>
 
         </div>

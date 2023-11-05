@@ -2,9 +2,13 @@
 
 namespace App\Livewire\Student;
 
+use App\Livewire\Forms\Student\CreateForm;
 use App\Models\Classes;
 use App\Models\Section;
 use App\Models\Student;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -13,24 +17,16 @@ class Create extends Component
 {
 
     use WithFileUploads;
+    use LivewireAlert;
 
-    #[Rule('required|min:3')]
-    public $name;
-
-    #[Rule('required|email')]
-    public $email;
-
-    #[Rule('nullable|image')]
-    public $image;
+    public CreateForm $form;
 
     #[Rule('required')]
     public $classes_id;
 
-    public $section_id;
-
     public $sections = [];
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.student.create', [
             'classes' => Classes::all(),
@@ -39,19 +35,16 @@ class Create extends Component
 
     public function save()
     {
-//request()->all()['components'][0]['updates'];
+        //request()->all()['components'][0]['updates'];
         $this->validate();
-        $student = Student::create([
-            'name' => $this->name,
-            'email' => $this->email,
-            'classes_id' => $this->classes_id,
-            'section_id' => $this->section_id,
+        $this->form->storeData(['classes_id' => $this->classes_id]);
+        redirect(route('students.index'));
+        $this->alert('success', 'Hello!', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => true,
         ]);
-        $student
-            ->addMedia($this->image)
-            ->toMediaCollection();
 
-        return redirect()->to('/students');
     }
 
     public function updatedClassesId($value)
