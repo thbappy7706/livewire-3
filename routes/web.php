@@ -27,6 +27,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('students', \App\Http\Controllers\StudentController::class);
+
+    Route::get('students/{student}/edit', \App\Livewire\Student\Edit::class)->name('students.edit');
+
 });
 
 require __DIR__ . '/auth.php';
