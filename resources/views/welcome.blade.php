@@ -14,6 +14,7 @@
 <body>
 <br>
 @livewire('bit-coin-price')
+@livewire('contact-form')
 
 @livewireScripts
 
