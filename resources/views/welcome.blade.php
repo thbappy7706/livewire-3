@@ -15,6 +15,9 @@
 <hr/>
 <livewire:counter/>
 
+<hr/>
+<livewire:todo/>
+
 @livewireScripts
 </body>
 </html>
